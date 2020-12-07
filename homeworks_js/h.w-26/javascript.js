@@ -11,18 +11,18 @@ while(firstNumber <= lastNumber){
 console.log(sum)
 
 //2. Запросить 2 числа и найти только наибольший общий делитель.
-let firstNumber = 92;
-let secondNumber = 90;
+let userFirstNumber = 86;
+let userSecondNumber = 90;
 
-while (firstNumber != 0 && secondNumber != 0) {
-    if (firstNumber > secondNumber) {
-        firstNumber = firstNumber % secondNumber }
+while (userFirstNumber != 0 && userSecondNumber != 0) {
+    if (userFirstNumber > userSecondNumber) {
+        userFirstNumber = userFirstNumber % userSecondNumber }
     else {
-        secondNumber = secondNumber % firstNumber
+        userSecondNumber = userSecondNumber % userFirstNumber
     }
 }
 
-console.log(firstNumber + secondNumber)
+console.log(userFirstNumber + userSecondNumber)
 
 //3. Запросить у пользователя число и вывести все делители этого числа.
 let number = 21;
@@ -33,7 +33,7 @@ for (let i = 1; i <= number; i++) {
 }
 
 //4. Определить количество цифр в введенном числе.
-let number = Number(prompt("Enter your number"));
+let userNumber = Number(prompt("Enter your number"));
 while (number % 1 != 0) {}
 
 let g = 1;
@@ -53,31 +53,31 @@ for (let i = 10; ; i *= 10) {
 
 /*6. Зациклить калькулятор. Запросить у пользователя 2 числа и знак, решить пример, вывести результат и спросить, 
 хочет ли он решить еще один пример. И так до тех пор, пока пользователь не откажется.*/
-let firstNumber;
-let secondNumber;
+let firstNumb;
+let secondNum;
 let operator;
 let result;
 let action;
 
 do {
-    firstNumber = Number(prompt("Enter a first number"));
-    secondNumber = Number(prompt("Enter a second number"));
+    firstNumb = Number(prompt("Enter a first number"));
+    secondNumb = Number(prompt("Enter a second number"));
     operator = prompt("Enter an operator");
 
-    if (!firstNumber || !secondNumber || (operator != "+" && operator != "-" && operator != "*" && operator != "/")) {
+    if (!firstNum || !secondNum || (operator != "+" && operator != "-" && operator != "*" && operator != "/")) {
     } else {
         switch (operator) {
             case "+":
-                result = firstNumber + secondNumber;
+                result = firstNumb + secondNum;
                 break;
             case "-":
-                result = firstNumber - secondNumber;
+                result = firstNum - secondNum;
                 break;
             case "*":
-                result = firstNumber * secondNumber;
+                result = firstNum * secondNum;
                 break;
             case "/":
-                result = firstNumber / secondNumber;
+                result = firstNum / secondNum;
                 break;
             }
 
