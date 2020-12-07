@@ -53,22 +53,22 @@ for (let i = 10; ; i *= 10) {
 
 /*6. Зациклить калькулятор. Запросить у пользователя 2 числа и знак, решить пример, вывести результат и спросить, 
 хочет ли он решить еще один пример. И так до тех пор, пока пользователь не откажется.*/
-let firstNumb;
+let firstNum;
 let secondNum;
 let operator;
 let result;
 let action;
 
 do {
-    firstNumb = Number(prompt("Enter a first number"));
-    secondNumb = Number(prompt("Enter a second number"));
+    firstNum = Number(prompt("Enter a first number"));
+    secondNum = Number(prompt("Enter a second number"));
     operator = prompt("Enter an operator");
 
     if (!firstNum || !secondNum || (operator != "+" && operator != "-" && operator != "*" && operator != "/")) {
     } else {
         switch (operator) {
             case "+":
-                result = firstNumb + secondNum;
+                result = firstNum + secondNum;
                 break;
             case "-":
                 result = firstNum - secondNum;
