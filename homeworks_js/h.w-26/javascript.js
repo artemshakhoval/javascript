@@ -48,7 +48,19 @@ for (let i = 10; ; i *= 10) {
 
 /*5. Запросить у пользователя 10 чисел и подсчитать, сколько он ввел положительных, отрицательных и нулей. При этом также посчитать, 
 сколько четных и нечетных. Вывести статистику на экран. Учтите, что достаточно одной переменной (не 10) для ввода чисел пользователем*/
-
+let countNull = 0, countNeg = 0, countPos = 0;
+for (i = 0; i < 10; i++) {
+  let number = prompt("Enter a number");
+  if (number == 0) {
+    countNull++ }
+  else if (number < 0) {
+    countNeg++
+  }
+  else if (number > 0) {
+    countPos++
+  }
+}
+console.log(countNull, countNeg, countPos)
 
 
 /*6. Зациклить калькулятор. Запросить у пользователя 2 числа и знак, решить пример, вывести результат и спросить, 
@@ -90,9 +102,23 @@ do {
 
 /*7. Запросить у пользователя число и на сколько цифр его сдвинуть. Сдвинуть цифры числа и вывести результат 
 (если число 123456 сдвинуть на 2 цифры, то получится 345612).*/
-let str = prompt("Enter a number");
-let move = prompt("Enter on how much numerics number must move?");
-console.log(str.slice(move) + str.slice(0, move));
+// let str = prompt("Enter a number");
+// let move = prompt("Enter on how much numerics number must move?");
+// console.log(str.slice(move) + str.slice(0, move));
+let number = 12345;
+let move = 2;
+let i = 0;
+let n1 = number;
+
+do {
+n1 = Math.trunc(n1 / 10);
+i++;
+} while (n1);
+
+for(let j = 1; j <= move; j++) {
+  number = Math.trunc(number / 10 ** (i-1)) + Math.trunc(number % 10 ** (i-1) * 10);
+}
+console.log(number);
 
 
 /*8. Зациклить вывод дней недели таким образом: «День недели. 
@@ -101,7 +127,14 @@ console.log(str.slice(move) + str.slice(0, move));
 
 
 //9. Вывести таблицу умножения для всех чисел от 2 до 9. Каждое число необходимо умножить на числа от 1 до 10.
-
+for ( let i = 2; i <= 9; i++) {
+    console.log(i ${i}); 
+    for ( let j = 1; j <= 10; j++) {
+    console.log('j', j);
+   
+      console.log( ${i} * ${j} = ${ i * j} );
+  }
+  }
 
 
 /*10. Игра «Угадай число». Предложить пользователю загадать число от 0 до 100 и отгадать его следующим способом: каждую итерацию 
