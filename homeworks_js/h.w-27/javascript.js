@@ -11,7 +11,7 @@ function getNumber(number1, number2) {
         return "uknown"
     }
  getNumber(6, 6)
-//2. Написать функцию, которая вычисляет факториал переданного ей числа.
+//2. Написать функцию, которая вычисляет факториал переданного ей числа
 function factorial(number) {
     if (number == 0) {
       return 1;
