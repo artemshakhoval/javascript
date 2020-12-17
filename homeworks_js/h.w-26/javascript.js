@@ -123,21 +123,51 @@ console.log(number);
 
 /*8. Зациклить вывод дней недели таким образом: «День недели. 
 Хотите увидеть следующий день?» и так до тех пор, пока пользователь нажимает OK.*/
-
-
+let day = 'Monday';
+while(confirm(`${day} try again?`)) {
+  switch(day) {
+    case 'Monday' : day = 'Tuesday';
+      break;
+    case 'Tuesday' : day = 'Wednesday';
+      break;
+    case 'Wednesday' : day = 'Thursday';
+      break;
+    case 'Thursday' : day = 'Friday';
+      break;
+    case 'Friday' : day = 'Saturday';
+      break;
+    case 'Saturday' : day = 'Sunday';
+      break;
+    case 'Sunday' : day = 'Monday';
+      break;
+  }
+}
 
 //9. Вывести таблицу умножения для всех чисел от 2 до 9. Каждое число необходимо умножить на числа от 1 до 10.
-for ( let i = 2; i <= 9; i++) {
-    console.log(i ${i}); 
-    for ( let j = 1; j <= 10; j++) {
-    console.log('j', j);
-   
-      console.log( ${i} * ${j} = ${ i * j} );
-  }
-  }
+for (let i = 2; i <= 9; i++) {
+  console.log('i', i); 
+  for (let j = 1; j <= 10; j++) {
+  console.log('j', j);
+ 
+    console.log(`${i} * ${j} = ${i * j}`);
+}
+}
 
 
 /*10. Игра «Угадай число». Предложить пользователю загадать число от 0 до 100 и отгадать его следующим способом: каждую итерацию 
 цикла делите диапазон чисел пополам, записываете результат в N и спрашиваете у пользователя «Ваше число > N, < N или == N?». 
 В зависимости от того, что указал пользователь, уменьшаете диапазон. Начальный диапазон от 0 до 100, поделили пополам и получили 50. 
 Если пользователь указал, что его число > 50, то изменили диапазон на от 51 до 100. И так до тех пор, пока пользователь не выберет == N.*/
+let down = 0;
+let up = 100;
+let range = 50;
+let number = 65;
+while (number != range) {
+  if (confirm(`Your number is > ${range}`)) {
+    down = range;
+    range = down + range / 2;
+  } else {
+    up = range;
+    range = up - range / 2;
+  }
+}

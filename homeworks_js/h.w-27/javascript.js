@@ -84,13 +84,27 @@ function setTime(h) {
   let time = setTime(20)(15)();
   console.log(time);
 
-
 //8. Написать функцию, которая принимает часы, минуты и секунды и возвращает это время в секундах.
+function getTimeSeconds(hours, minutes = 00, seconds = 00) {
+  hours = hours * 3600;
+  minutes = minutes * 60;
+  let res = hours + minutes + seconds;
+  return res
+}
 
-
+console.log(getTimeSeconds(2, 40, 20));
 
 //9. Написать функцию, которая принимает количество секунд, переводит их в часы, минуты и секунды и возвращает в виде строки «чч:мм:сс».
 
+function getTime(seconds) {
+  let minutes = Math.trunc((seconds % 3600) / 60);
+  let hours = Math.trunc(seconds % (3600 * 24) / 3600);
+  let newSeconds = seconds % 3600 % 60;
+  let days = Math.trunc(seconds / (3600 * 24));
+  let result = days + ':' + hours + ':' + minutes + ':' + newSeconds;
+  return result;
+}
+console.log(getTime(150000));
 
 //10. Написать функцию, которая считает разницу между датами. Функция принимает 6 параметров, которые описывают 2 даты, 
 // и возвращает результат в виде строки «чч:мм:сс». При выполнении задания используйте функции из предыдущих 2-х заданий: 
