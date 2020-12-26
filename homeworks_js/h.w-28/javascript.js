@@ -159,6 +159,7 @@ console.log(width);
 
 //1. Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, 
 //необходимое количество и куплен или нет. Написать несколько функций для работы с таким массивом.
+// still in progress
 class Product {
   constructor(params = {}) {
     Object.assign(this, {
@@ -201,3 +202,97 @@ addToShopList({ pName: 'Банан', amount: 3 });
 addToShopList({ pName: 'Шоколад', amount: 2 });
 shopList.sort(Product.sortDefault);
 printShopList();
+
+
+// 2. Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, 
+//количества и цены за единицу товара. Написать следующие функции:
+//Распечатка чека на экран; Подсчет общей суммы покупки; Получение самой дорогой покупки в чеке; Подсчет средней стоимости одного товара в чеке.
+
+let check = [
+  {
+    name: "sugar",
+    total: 4,
+    price: 12,
+    buy: true,
+  },
+    {
+    name: "bread",
+    total: 3,
+    price: 2,
+    buy: false,
+  },
+  {
+    name: "banana",
+    total: 5,
+    price: 6,
+    buy: true,
+  }
+]
+let name = "name";
+
+function info(shoppingList) {
+  for (let item of shoppingList) {
+    console.log(`You buy ${item[name]}`);
+  }
+}
+
+function totalPrice(shoppingList) {
+  let result = 0;
+  for (let item of shoppingList) {
+    result += item.total * item.price;
+  }
+  console.log(result);
+}
+
+function maxPrice(shoppingList) {
+  let mostExspensive = 0;
+  let mostExspensiveItem;
+  for (let item of shoppingList) {
+    if (mostExspensive < item.total * item.price) {
+      mostExspensive = item.total * item.price;
+      mostExspensiveItem = item.name;
+    } 
+  }
+  return mostExspensiveItem;
+}
+
+function averagePrice(shoppingList) {
+  let sum = 0;
+  for (let item of shoppingList) {
+    sum += item.price;
+  }
+  console.log(sum / shoppingList.length);
+}
+
+console.log(maxPrice(check));
+info(check);
+totalPrice(check);
+averagePrice(check);
+
+
+//3. Создать массив CSS-стилей (цвет, размер шрифта, выравнивание, подчеркивание и т. д.). Каждый элемент массива – это объект, 
+//состоящий из двух свойств: название стиля и значение стиля. Написать функцию, которая принимает массив стилей и текст, 
+//и выводит этот текст с помощью document.write() в тегах <p></p>, добавив в открывающий тег атрибут style со всеми стилями, 
+//перечисленными в массиве.
+let style = [
+  {
+    propertyName: "color",
+    propertyValue: "red"
+  },
+  {
+    propertyName: "font-size",
+    propertyValue: "20px"
+  }  
+]
+
+function textStyle(style, text) {
+  let string = "";
+  for (let element of style) {
+    string += `${element.propertyName}:${element.propertyValue}`;
+}
+  console.log(string);
+  document.write(`<p style=${string}>${text}</p>`)
+}
+
+
+textStyle(style, "askdasdlkasdjl");
