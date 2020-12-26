@@ -6,8 +6,32 @@
 // метод, вычисляющий площадь окружности;
 // метод, вычисляющий длину окружности.
 // Продемонстрировать работу свойств и методов. 
-
-
+class Circle {
+    constructor(rad) {
+      this.rad = rad;
+    }
+    get radius() {
+      return this.rad;
+    }
+    set radius(rad) {
+      return this.rad
+    }
+    get diameter() {
+      return this.rad * 2;
+    }
+    circleSquare() {
+      return Math.PI * this.rad * this.rad;
+    }
+    circleLength() {
+      return Math.PI * this.rad * 2;
+    }
+  }
+  let circle = new Circle(10);
+  console.log(circle.radius);
+  console.log(circle.rad);
+  console.log(circle.diameter);
+  console.log(circle.circleSquare().toFixed(3));
+  console.log(circle.circleLength().toFixed(3));
 
 
 //2. Реализовать класс, описывающий простой маркер. В классе должны быть следующие компоненты:
