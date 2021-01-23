@@ -51,14 +51,14 @@ $(document).ready(function(){
     $(".error").remove();
 
     if(name == "") {
-      $('#name').after('<span class="form__error">This field is required</span>');
+      $('#name').after('<span class="form__error">Enter a valid name</span>');
       validName = false;
     } else {
       validName = true;
     }
 
     if(email == "") {
-      $('#email').after('<span class="form__error">This field is required</span>');
+      $('#email').after('<span class="form__error">Enter a valid email</span>');
       validEmail = false;	
     } else {
       validEmail = true;	
@@ -79,7 +79,8 @@ $(document).ready(function(){
     infinite: true,
     speed: 300,
     slidesToShow: 1,
-    adaptiveHeight: true
+    adaptiveHeight: true,
+    arrows: false
   });
 });
 
@@ -102,7 +103,12 @@ $(".item__link").on('click', function() {
 
 
 // FANCYBOX
-// $("[data-fancybox]").fancybox();
+$(document).ready(function() {
+  $("a.images--fancybox").fancybox({
+    'hideOnContentClick' : true,
+    'overlayOpacity' : 0.5
+});
+})
 
 
 // MAP
@@ -154,7 +160,7 @@ initMap = function() {
         elementType: "labels.text.fill",
         stylers: [
           {
-            color: "#bdbdbd"
+            color: "#dbd9d9"
           }
         ]
       },
@@ -271,7 +277,7 @@ initMap = function() {
         elementType: "labels.text.fill",
         stylers: [
           {
-            color: "#9e9e9e"
+            color: "#cccbcb"
           }
         ]
       }
