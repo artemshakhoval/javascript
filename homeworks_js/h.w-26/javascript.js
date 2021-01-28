@@ -34,11 +34,11 @@ for (let i = 1; i <= number; i++) {
 
 //4. Определить количество цифр в введенном числе.
 let userNumber = Number(prompt("Enter your number"));
-while (number % 1 != 0) {}
+while (userNumber % 1 != 0) {}
 
 let g = 1;
 for (let i = 10; ; i *= 10) {
-    if (Math.abs(number) < i) {
+    if (Math.abs(userNumber) < i) {
         console.log(`In your number there are ${g} numerics`);
         break;
     } else {
@@ -48,19 +48,38 @@ for (let i = 10; ; i *= 10) {
 
 /*5. Запросить у пользователя 10 чисел и подсчитать, сколько он ввел положительных, отрицательных и нулей. При этом также посчитать, 
 сколько четных и нечетных. Вывести статистику на экран. Учтите, что достаточно одной переменной (не 10) для ввода чисел пользователем*/
-let countNull = 0, countNeg = 0, countPos = 0;
-for (i = 0; i < 10; i++) {
-  let number = prompt("Enter a number");
-  if (number == 0) {
-    countNull++ }
-  else if (number < 0) {
-    countNeg++
-  }
-  else if (number > 0) {
-    countPos++
-  }
+// let countNull = 0, countNeg = 0, countPos = 0;
+// for (i = 0; i < 10; i++) {
+//   let num = prompt("Enter a number");
+//   if (num == 0) {
+//     countNull++ }
+//   else if (num < 0) {
+//     countNeg++
+//   }
+//   else if (num > 0) {
+//     countPos++
+//   }
+// }
+// console.log(countNull, countNeg, countPos)
+let positive = 0;
+let negative = 0;
+let zero = 0;
+let odd = 0;
+let even = 0;
+
+for (let i = 0; i < 10; i++) {
+  let num = +prompt("Enter a number....");
+
+  num == 0 ? zero++ : num > 0 ? positive++ : negative++;
+  num % 2 ? odd++ : even++;
 }
-console.log(countNull, countNeg, countPos)
+
+console.log(` You have entered:
+Positive numbers: ${positive}
+Negative numbers: ${negative}
+Zeroes:           ${zero}
+Odd numbers:      ${odd}
+Even numbers:     ${even}`);
 
 
 /*6. Зациклить калькулятор. Запросить у пользователя 2 числа и знак, решить пример, вывести результат и спросить, 
@@ -105,10 +124,10 @@ do {
 // let str = prompt("Enter a number");
 // let move = prompt("Enter on how much numerics number must move?");
 // console.log(str.slice(move) + str.slice(0, move));
-let number = 12345;
+let numbers = 12345;
 let move = 2;
 let i = 0;
-let n1 = number;
+let n1 = numbers;
 
 do {
 n1 = Math.trunc(n1 / 10);
@@ -116,9 +135,9 @@ i++;
 } while (n1);
 
 for(let j = 1; j <= move; j++) {
-  number = Math.trunc(number / 10 ** (i-1)) + Math.trunc(number % 10 ** (i-1) * 10);
+  numbers = Math.trunc(number / 10 ** (i-1)) + Math.trunc(numbers % 10 ** (i-1) * 10);
 }
-console.log(number);
+console.log(numbers);
 
 
 /*8. Зациклить вывод дней недели таким образом: «День недели. 
@@ -158,16 +177,32 @@ for (let i = 2; i <= 9; i++) {
 цикла делите диапазон чисел пополам, записываете результат в N и спрашиваете у пользователя «Ваше число > N, < N или == N?». 
 В зависимости от того, что указал пользователь, уменьшаете диапазон. Начальный диапазон от 0 до 100, поделили пополам и получили 50. 
 Если пользователь указал, что его число > 50, то изменили диапазон на от 51 до 100. И так до тех пор, пока пользователь не выберет == N.*/
-let down = 0;
-let up = 100;
-let range = 50;
-let number = 65;
-while (number != range) {
-  if (confirm(`Your number is > ${range}`)) {
-    down = range;
-    range = down + range / 2;
-  } else {
-    up = range;
-    range = up - range / 2;
-  }
-}
+// let down = 0;
+// let up = 100;
+// let range = 50;
+// let numberUs = 65;
+// while (numberUs != range) {
+//   if (confirm(`Your number is > ${range}`)) {
+//     down = range;
+//     range = down + range / 2;
+//   } else {
+//     up = range;
+//     range = up - range / 2;
+//   }
+// }
+let secret = 36;
+let factor = 24;
+let condition;
+do {
+  condition = prompt(`  Your number is ${secret} ( = )
+  Your number is greater than  ${secret}  ( > )
+  Your number is less than  ${secret}  ( < ) `);
+  condition == ">"
+    ? (secret = Math.min(secret + factor, 100))
+    : condition == "<"
+    ? (secret = secret - factor)
+    : {};
+  factor = Math.max(factor / 2, 1);
+} while (condition != "=");
+
+console.log(`Your number is ${secret}`);

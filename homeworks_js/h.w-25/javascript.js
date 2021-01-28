@@ -41,9 +41,9 @@ if (number == 0) {
 }
 
 //3. Запросить у пользователя трехзначное число и проверить, есть ли в нем одинаковые цифры.
-let number = 155;
-let number1 = parseInt(number / 100);
-let number2 = parseInt(number / 10) % 10;
+let num = 155;
+let number1 = parseInt(num / 100);
+let number2 = parseInt(num / 10) % 10;
 let number3 = number % 10;
 if (number1===number2 || number2===number3 || number1===number3) {
 console.log('Найдено совпадение цифр');
